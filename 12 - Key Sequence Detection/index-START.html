@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Key Detection</title>
-  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
-</head>
-<body>
-<script>
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Key Detection</title>
+    <script
+      type="text/javascript"
+      src="https://www.cornify.com/js/cornify.js"
+    ></script>
+  </head>
+  <body>
+    <script>
+      let nextIndex = 0;
+      const KEY_SEQUENCE = [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight",
+        "b",
+        "a",
+        "Enter",
+      ];
+
+      function checkKeySequence(e) {
+        if (e.key === KEY_SEQUENCE[nextIndex]) {
+          nextIndex++;
+          if (nextIndex === KEY_SEQUENCE.length) {
+            console.log("yay!");
+          }
+        } else {
+          nextIndex = 0;
+        }
+      }
+
+      window.addEventListener("keyup", checkKeySequence);
+    </script>
+  </body>
 </html>
